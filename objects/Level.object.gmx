@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string> /// Create the level
-// Resize
+            <string>/// Create the level
+// Resize the room
 room_width = (CELL_WIDTH/16) * 720;
 room_height = (CELL_HEIGHT/16) * 720;
 
@@ -37,7 +37,7 @@ var height = room_height div CELL_HEIGHT;
 // Create the grid
 grid = ds_grid_create(width, height);
 
-// Fill the grid with void
+// Fill the grid with the void
 ds_grid_set_region(grid, 0, 0, width-1, height-1, VOID);
 
 // Randomize the world
@@ -53,10 +53,10 @@ instance_create(cx*CELL_WIDTH+CELL_WIDTH/2, cy*CELL_HEIGHT+CELL_HEIGHT/2, Player
 // Give the controller a random direction
 var cdir = irandom(3);
 
-// The odds variable for changing direction
+// The odds variable for chaning direction
 var odds = 1;
 
-// Create the level in 1000 steps
+// Create the level using 1000 steps
 repeat (1000) {
     // Place a floor tile at the controller position
     grid[# cx, cy] = FLOOR;
@@ -77,9 +77,11 @@ repeat (1000) {
     cy = clamp(cy, 1, height-2);
 }
 
+// Add the walls
 for (var yy = 1; yy &lt; height-1; yy++) {
     for (var xx = 1; xx &lt; width-1; xx++) {
         if (grid[# xx, yy] == FLOOR) {
+            // Check for walls
             if (grid[# xx+1, yy] != FLOOR) grid[# xx+1, yy] = WALL;
             if (grid[# xx-1, yy] != FLOOR) grid[# xx-1, yy] = WALL;
             if (grid[# xx, yy+1] != FLOOR) grid[# xx, yy+1] = WALL;
@@ -93,20 +95,87 @@ for (var yy = 0; yy &lt; height; yy++) {
     for (var xx = 0; xx &lt; width; xx++) {
         if (grid[# xx, yy] == FLOOR) {
             // Draw the floor
-            tile_add(bg_floor, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
-        } else if (grid[# xx, yy] == WALL) {
-            // Draw the wall
-            tile_add(bg_wall, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0);
+            tile_add(bg_floor, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0)
         }
     }
 }
 
-// Get the tile sizes
+//////////////////////////////////////////////////////////////////
+// PART 4 STARTS HERE!!!!
+// Get tile sizes
 var tw = CELL_WIDTH/2;
 var th = CELL_HEIGHT/2;
 
 // Add the tiles
-
+for (var yy = 0; yy &lt; height*2; yy++) {
+    for (var xx = 0; xx &lt; width*2; xx++) {
+        if (grid[# xx div 2, yy div 2] == FLOOR) {
+            // Get the tile's x and y
+            var tx = xx*tw;
+            var ty = yy*th;
+            
+            var right = grid[# (xx+1) div 2, yy div 2] != FLOOR;
+            var left = grid[# (xx-1) div 2, yy div 2] != FLOOR;
+            var top = grid[# xx div 2, (yy-1) div 2] != FLOOR;
+            var bottom = grid[# xx div 2, (yy+1) div 2] != FLOOR;
+            
+            var top_right = grid[# (xx+1) div 2, (yy-1) div 2] != FLOOR;
+            var top_left = grid[# (xx-1) div 2, (yy-1) div 2] != FLOOR;
+            var bottom_right = grid[# (xx+1) div 2, (yy+1) div 2] != FLOOR;
+            var bottom_left = grid[# (xx-1) div 2, (yy+1) div 2] != FLOOR;
+            
+            if (right) {
+                if (bottom) {
+                    tile_add(bg_walltiles, tw*4, th*1, tw, th, tx+tw, ty, -ty);
+                } else if (top) {
+                    if (top_right) {
+                        tile_add(bg_walltiles, tw*4, th*0, tw, th, tx+tw, ty-th, -ty);
+                    } else {
+                        tile_add(bg_walltiles, tw*3, th*0, tw, th, tx, ty-th, -ty);
+                    }
+                    tile_add(bg_walltiles, tw*0, th*1, tw, th, tx+tw, ty, -ty);
+                } else {
+                    tile_add(bg_walltiles, tw*0, th*1, tw, th, tx+tw, ty, -ty);
+                }
+            }
+            
+            if (left) {
+                if (bottom) {
+                    tile_add(bg_walltiles, tw*3, th*1, tw, th, tx-tw, ty, -ty);
+                } else if (top) {
+                    if (top_left) {
+                        tile_add(bg_walltiles, tw*3, th*0, tw, th, tx-tw, ty-th, -ty);
+                    } else {
+                        tile_add(bg_walltiles, tw*4, th*0, tw, th, tx, ty-th, -ty);
+                    }
+                    tile_add(bg_walltiles, tw*2, th*1, tw, th, tx-tw, ty, -ty);
+                } else {
+                    tile_add(bg_walltiles, tw*2, th*1, tw, th, tx-tw, ty, -ty);
+                }
+            }
+            
+            if (top) {
+                if (!top_right) {
+                    tile_add(bg_walltiles, tw*2, th*2, tw, th, tx, ty-th, -ty);
+                } else if (!top_left) {
+                    tile_add(bg_walltiles, tw*0, th*2, tw, th, tx, ty-th, -ty);
+                } else {
+                    tile_add(bg_walltiles, tw*1, th*2, tw, th, tx, ty-th, -ty);
+                }
+            }
+            
+            if (bottom) {
+                if (!bottom_right) {
+                    tile_add(bg_walltiles, tw*2, th*0, tw, th, tx, ty, -ty-tw);
+                } else if (!bottom_left) {
+                    tile_add(bg_walltiles, tw*0, th*0, tw, th, tx, ty, -ty-tw);
+                } else {
+                    tile_add(bg_walltiles, tw*1, th*0, tw, th, tx, ty, -ty-tw);
+                }
+            }
+        }
+    }
+}
 
 </string>
           </argument>
