@@ -7,7 +7,6 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
-    <sprite>sprites\spr_wall</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor</background>
@@ -15,10 +14,13 @@
     <background>background\bg_wall</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\move.gml</script>
+    <script>scripts\grid_place_meeting.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\Level</object>
-    <object>objects\obj_player</object>
-    <object>objects\obj_wall</object>
+    <object>objects\Player</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
