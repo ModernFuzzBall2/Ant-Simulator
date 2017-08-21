@@ -11,6 +11,7 @@
   <backgrounds name="background">
     <background>background\bg_floor</background>
     <background>background\bg_void</background>
+    <background>background\bg_walltiles</background>
     <background>background\bg_wall</background>
   </backgrounds>
   <paths name="paths"/>

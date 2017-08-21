@@ -3,8 +3,8 @@
   <caption></caption>
   <width>720</width>
   <height>720</height>
-  <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <vsnap>16</vsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -53,7 +53,17 @@
   <instances>
     <instance objName="Level" x="160" y="96" name="inst_B86DDC83" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
-  <tiles/>
+  <tiles>
+    <tile bgName="bg_walltiles" x="272" y="176" w="16" h="16" xo="16" yo="16" id="10000019" name="inst_36782BBD" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_walltiles" x="256" y="176" w="16" h="16" xo="16" yo="16" id="10000020" name="inst_91918CA1" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_walltiles" x="304" y="176" w="16" h="16" xo="16" yo="16" id="10000021" name="inst_BD033C7F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_walltiles" x="288" y="176" w="16" h="16" xo="16" yo="16" id="10000022" name="inst_759BF821" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_walltiles" x="320" y="176" w="16" h="16" xo="16" yo="16" id="10000023" name="inst_0D373F35" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_walltiles" x="320" y="192" w="16" h="16" xo="16" yo="16" id="10000024" name="inst_CDE16E69" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_walltiles" x="304" y="192" w="16" h="16" xo="16" yo="16" id="10000025" name="inst_002CAA18" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_walltiles" x="272" y="192" w="16" h="16" xo="16" yo="16" id="10000026" name="inst_E76ED2A9" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_walltiles" x="288" y="192" w="16" h="16" xo="16" yo="16" id="10000027" name="inst_476B848D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+  </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
   <PhysicsWorldLeft>0</PhysicsWorldLeft>
