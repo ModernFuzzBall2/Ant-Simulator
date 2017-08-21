@@ -100,6 +100,14 @@ for (var yy = 0; yy &lt; height; yy++) {
         }
     }
 }
+
+// Get the tile sizes
+var tw = CELL_WIDTH/2;
+var th = CELL_HEIGHT/2;
+
+// Add the tiles
+
+
 </string>
           </argument>
         </arguments>
