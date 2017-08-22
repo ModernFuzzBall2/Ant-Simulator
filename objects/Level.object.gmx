@@ -153,7 +153,11 @@ for (var yy = 0; yy &lt; height*2; yy++) {
             
             if (right) {
                 if (bottom) {
+                    if (y-1 != FLOOR) {
+                       tile_add(bg_walltiles, tw*4, th*3, tw, th, tx+tw, ty, -ty);
+                    } else {
                     tile_add(bg_walltiles, tw*4, th*1, tw, th, tx+tw, ty, -ty);
+                    }
                 } else if (top) {
                     if (top_right) {
                         tile_add(bg_walltiles, tw*4, th*0, tw, th, tx+tw, ty-th, -ty);
@@ -168,7 +172,11 @@ for (var yy = 0; yy &lt; height*2; yy++) {
             
             if (left) {
                 if (bottom) {
+                    if (y-1 != FLOOR) {
+                       tile_add(bg_walltiles, tw*3, th*3, tw, th, tx-tw, ty, -ty);
+                    } else {
                     tile_add(bg_walltiles, tw*3, th*1, tw, th, tx-tw, ty, -ty);
+                    }
                 } else if (top) {
                     if (top_left) {
                         tile_add(bg_walltiles, tw*3, th*0, tw, th, tx-tw, ty-th, -ty);
@@ -193,9 +201,19 @@ for (var yy = 0; yy &lt; height*2; yy++) {
             
             if (bottom) {
                 if (!bottom_right) {
-                    tile_add(bg_walltiles, tw*2, th*0, tw, th, tx, ty, -ty-tw);
+                    if (y-1 != FLOOR) {
+                        tile_add(bg_walltiles, tw*2, th*3, tw, th, tx, ty, -ty-tw);
+                    } else {
+                        tile_add(bg_walltiles, tw*2, th*0, tw, th, tx, ty, -ty-tw);
+                    }
                 } else if (!bottom_left) {
-                    tile_add(bg_walltiles, tw*0, th*0, tw, th, tx, ty, -ty-tw);
+                    if (y-1 != FLOOR) {
+                        tile_add(bg_walltiles, tw*0, th*3, tw, th, tx, ty, -ty-tw);
+                    } else {
+                        tile_add(bg_walltiles, tw*0, th*0, tw, th, tx, ty, -ty-tw);
+                    }
+                } else if (y-1 != FLOOR) {
+                    tile_add(bg_walltiles, tw*1, th*3, tw, th, tx, ty, -ty-tw);
                 } else {
                     tile_add(bg_walltiles, tw*1, th*0, tw, th, tx, ty, -ty-tw);
                 }

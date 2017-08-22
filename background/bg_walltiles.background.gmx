@@ -14,6 +14,6 @@
   </TextureGroups>
   <For3D>0</For3D>
   <width>80</width>
-  <height>48</height>
+  <height>64</height>
   <data>images\bg_walltiles.png</data>
 </background>
