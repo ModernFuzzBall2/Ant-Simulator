@@ -40,8 +40,15 @@ grid = ds_grid_create(width, height);
 // Fill the grid with the void
 ds_grid_set_region(grid, 0, 0, width-1, height-1, VOID);
 
-// Randomize the world
-randomize();
+// Load a room
+if (show_question("Would you like to load a room")) {
+    var key = get_string("What is the name of the room?", "default");
+    ini_open("Save.ini");
+    var seed = ini_read_real("Rooms", key, 0);
+    random_set_seed(seed);
+} else {
+    randomize();
+}
 
 // Create the controller in the center of the grid
 var cx = width div 2;
@@ -90,6 +97,15 @@ for (var yy = 1; yy &lt; height-1; yy++) {
     }
 }
 
+// Add the walls
+for (var yy = 1; yy &lt; height-1; yy++) {
+    for (var xx = 1; xx &lt; width-1; xx++) {
+        if (grid[# xx, yy] == WALL &amp;&amp; grid[# xx+1, yy] == FLOOR &amp;&amp; grid[# xx-1, yy] == FLOOR &amp;&amp; grid[# xx, yy+1] == FLOOR &amp;&amp; grid[# xx, yy-1] == FLOOR) {
+            grid[# xx, yy] = FLOOR;
+        }
+    }
+}
+
 // Draw the level using the grid
 for (var yy = 0; yy &lt; height; yy++) {
     for (var xx = 0; xx &lt; width; xx++) {
@@ -100,8 +116,6 @@ for (var yy = 0; yy &lt; height; yy++) {
     }
 }
 
-//////////////////////////////////////////////////////////////////
-// PART 4 STARTS HERE!!!!
 // Get tile sizes
 var tw = CELL_WIDTH/2;
 var th = CELL_HEIGHT/2;
@@ -177,6 +191,34 @@ for (var yy = 0; yy &lt; height*2; yy++) {
     }
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="83">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Save the room
+ini_open("Save.ini");
+var key = get_string("What will you name the room?", "default");
+var val = random_get_seed();
+ini_write_real("Rooms", key, val);
+ini_close();
 </string>
           </argument>
         </arguments>
