@@ -112,6 +112,14 @@ for (var yy = 0; yy &lt; height; yy++) {
         if (grid[# xx, yy] == FLOOR) {
             // Draw the floor
             tile_add(bg_floor, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx*CELL_WIDTH, yy*CELL_HEIGHT, 0)
+            
+            // Add some enemies
+            var odds = 10;
+            var ex = xx*CELL_WIDTH+CELL_HEIGHT/2;
+            var ey = yy*CELL_HEIGHT+CELL_WIDTH/2;
+            if (point_distance(ex, ey, Player.x, Player.y) &gt; 80 &amp;&amp; irandom(odds) == odds) {
+                instance_create(ex, ey, Enemy);
+            }
         }
     }
 }
