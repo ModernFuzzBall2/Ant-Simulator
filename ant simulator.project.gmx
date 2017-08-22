@@ -20,9 +20,11 @@
     <script>scripts\move.gml</script>
     <script>scripts\grid_place_meeting.gml</script>
     <script>scripts\get_path_to_player.gml</script>
+    <script>scripts\get_input.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\Level</object>
+    <object>objects\Input</object>
     <object>objects\Player</object>
     <object>objects\Enemy</object>
   </objects>
