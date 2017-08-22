@@ -23,6 +23,7 @@
     <script>scripts\get_input.gml</script>
   </scripts>
   <objects name="objects">
+    <object>objects\Pause_menu</object>
     <object>objects\Level</object>
     <object>objects\Input</object>
     <object>objects\Player</object>
@@ -30,6 +31,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_test</room>
+    <room>rooms\rm_pause</room>
   </rooms>
   <constants number="5">
     <constant name="CELL_WIDTH">32</constant>
