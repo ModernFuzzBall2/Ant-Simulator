@@ -30,14 +30,14 @@
     <object>objects\Enemy</object>
     <object>objects\player_stats</object>
     <objects name="Menu">
-      <object>objects\menu_main</object>
       <object>objects\menu_pause</object>
+      <object>objects\menu_main</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_main</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_pause</room>
-    <room>rooms\rm_main</room>
   </rooms>
   <constants number="5">
     <constant name="CELL_WIDTH">32</constant>
