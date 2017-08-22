@@ -44,14 +44,13 @@ grid_path = mp_grid_create(0, 0, width, height, CELL_WIDTH, CELL_HEIGHT);
 ds_grid_set_region(grid, 0, 0, width-1, height-1, VOID);
 
 // Load a room
-if (show_question("Would you like to load a room")) {
+/* if (show_question("Would you like to load a room")) {
     var key = get_string("What is the name of the room?", "default");
     ini_open("Save.ini");
     var seed = ini_read_real("Rooms", key, 0);
     random_set_seed(seed);
-} else {
+} */
     randomize();
-}
 
 // Create the controller in the center of the grid
 var cx = width div 2;
@@ -227,34 +226,6 @@ for (var yy = 0; yy &lt; height*2; yy++) {
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Save the room
-ini_open("Save.ini");
-var key = get_string("What will you name the room?", "default");
-var val = random_get_seed();
-ini_write_real("Rooms", key, val);
-ini_close();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="7" enumb="5">
       <action>
         <libid>1</libid>
@@ -275,30 +246,6 @@ ini_close();
             <string>/// Destroy the grid
 ds_grid_destroy(grid);
 mp_grid_destroy(grid_path);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Restart the room
-room_restart();
 </string>
           </argument>
         </arguments>

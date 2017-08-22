@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-10</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -26,11 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>/// Get input and move
-get_input();
 
 var spd = 3;
-var hspd = (right_key-left_key)*spd;
-var vspd = (down_key-up_key)*spd;
+var hspd = (Input.right_key-Input.left_key)*spd;
+var vspd = (Input.down_key-Input.up_key)*spd;
 
 // Move
 move(hspd, vspd);
