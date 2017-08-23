@@ -16,5 +16,5 @@
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
 
-# Ignore files in Configs for linguist
+# Ignore files in the Configs folder for linguist
 Configs/* linguist-vendored
