@@ -71,6 +71,7 @@
     <room>rooms\rm_main</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_pause</room>
+    <room>rooms\rm_options</room>
     <rooms name="Mini Games">
       <room>rooms\rm_fa_menu</room>
       <room>rooms\rm_fa</room>
