@@ -114,6 +114,7 @@ if (alarm[0] &lt;= 0) {
                 break;
                 
             case 3:
+                audio_stop_all();
                 room_goto(rm_main);
                 break;
                 
