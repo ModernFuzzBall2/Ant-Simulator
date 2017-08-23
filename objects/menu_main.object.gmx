@@ -111,6 +111,7 @@ if (alarm[0] &lt;= 0) {
                 break;
                 
             case 2:
+                room_goto(rm_fa_menu);
                 break;
                 
             case 3:
