@@ -8,12 +8,22 @@
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_enemy</sprite>
+    <sprites name="Flappy Ant">
+      <sprite>sprites\spr_fa_pillar_bottom</sprite>
+      <sprite>sprites\spr_fa_pillar_top</sprite>
+      <sprite>sprites\spr_fa_cat</sprite>
+      <sprite>sprites\spr_fa_sprite_score_up</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor</background>
     <background>background\bg_void</background>
     <background>background\bg_walltiles</background>
     <background>background\bg_wall</background>
+    <backgrounds name="Flappy Ant">
+      <background>background\fa_mountains</background>
+      <background>background\fa_grass</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -22,6 +32,9 @@
     <script>scripts\get_path_to_player.gml</script>
     <script>scripts\save_game.gml</script>
     <script>scripts\get_input.gml</script>
+    <scripts name="Flappy Ant">
+      <script>scripts\fa_game_over.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\Level</object>
@@ -33,11 +46,24 @@
       <object>objects\menu_pause</object>
       <object>objects\menu_main</object>
     </objects>
+    <objects name="Flappy Ant">
+      <object>objects\fa_cat</object>
+      <object>objects\fa_pillar_bottom</object>
+      <object>objects\fa_pillar_top</object>
+      <object>objects\fa_pillar_creator</object>
+      <object>objects\fa_game_start</object>
+      <object>objects\fa_score_up</object>
+      <object>objects\fa_score</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main</room>
     <room>rooms\rm_test</room>
     <room>rooms\rm_pause</room>
+    <rooms name="Mini Games">
+      <room>rooms\rm_fa_menu</room>
+      <room>rooms\rm_fa</room>
+    </rooms>
   </rooms>
   <constants number="5">
     <constant name="CELL_WIDTH">32</constant>
