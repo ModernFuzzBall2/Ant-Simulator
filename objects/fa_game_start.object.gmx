@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Start the game
 
-if (Input.select_key || Input.up_key) {
+if  (keyboard_check_pressed(Input.fa_jump_key)) {
     room_goto(rm_fa);
 }
 </string>
@@ -55,12 +55,12 @@ if (Input.select_key || Input.up_key) {
             <string>/// Draw the text
 
 draw_set_halign(fa_center);
-draw_text_color(x+1,y,"Click to Play", c_black,c_black,c_black,c_black,1);
-draw_text_color(x-1,y,"Click to Play", c_black,c_black,c_black,c_black,1);
-draw_text_color(x,y+1,"Click to Play", c_black,c_black,c_black,c_black,1);
-draw_text_color(x,y-1,"Click to Play", c_black,c_black,c_black,c_black,1);
+draw_text_color(x+1,y,"Press Space to Play", c_black,c_black,c_black,c_black,1);
+draw_text_color(x-1,y,"Press Space to Play", c_black,c_black,c_black,c_black,1);
+draw_text_color(x,y+1,"Press Space to Play", c_black,c_black,c_black,c_black,1);
+draw_text_color(x,y-1,"Press Space to Play", c_black,c_black,c_black,c_black,1);
 
-draw_text_color(x,y,"Click to Play", c_white,c_white,c_white,c_white,1);
+draw_text_color(x,y,"Press Space to Play", c_white,c_white,c_white,c_white,1);
 draw_set_halign(fa_left);
 </string>
           </argument>

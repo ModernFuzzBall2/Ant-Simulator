@@ -15,3 +15,7 @@ if (gamepad_is_connected(0)) {
     pause_key = gamepad_button_check_pressed(0, gp_start);
     select_key = gamepad_button_check_pressed(0, gp_face1);
 }
+
+// Flappy Ant keys
+fa_jump_key = vk_space;
+

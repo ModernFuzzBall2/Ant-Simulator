@@ -64,7 +64,7 @@ if(vspeed &lt; 0) {
 }
 
 // Jump
-if (keyboard_check_pressed(Input.select_key || Input.up_key)) {
+if  (keyboard_check_pressed(Input.fa_jump_key)) {
     audio_stop_sound(snd_fa_up);
     audio_play_sound(snd_fa_up, 11, false);
     vspeed = -5;
