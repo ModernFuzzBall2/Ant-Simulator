@@ -12,6 +12,7 @@
       <sprite>sprites\spr_fa_pillar_bottom</sprite>
       <sprite>sprites\spr_fa_pillar_top</sprite>
       <sprite>sprites\spr_fa_cat</sprite>
+      <sprite>sprites\spr_fa_title</sprite>
       <sprite>sprites\spr_fa_sprite_score_up</sprite>
     </sprites>
   </sprites>
@@ -54,6 +55,8 @@
       <object>objects\fa_game_start</object>
       <object>objects\fa_score_up</object>
       <object>objects\fa_score</object>
+      <object>objects\fa_high_score</object>
+      <object>objects\fa_title</object>
     </objects>
   </objects>
   <rooms name="rooms">
