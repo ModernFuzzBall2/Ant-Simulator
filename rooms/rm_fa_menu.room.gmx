@@ -56,7 +56,7 @@
     <instance objName="fa_game_start" x="152" y="150" name="inst_4557EB3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="fa_high_score" x="16" y="16" name="inst_C14B5210" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="fa_title" x="32" y="32" name="inst_051F0F9B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="fa_music" x="96" y="32" name="inst_21CEFA36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="fa_music" x="96" y="32" name="inst_D8FED67F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
