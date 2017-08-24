@@ -25,109 +25,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Initialize the menu
-title = "Ant Simulator";
+            <string>/// Set the text for the credits
 
-option[0] = "Play";
-option[1] = "Mini Games";
-option[2] = "Options";
-option[3] = "Credits";
-option[4] = "Quit";
+// Play credits music
+audio_play_sound(snd_credits, 10, true);
 
-// Menu index
-menu_index = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Menu alarm
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Control the menu
-if (alarm[0] &lt;= 0) {
-    if (Input.down_key) {
-        if (menu_index &lt; array_length_1d(option)-1) {
-            menu_index++;
-        } else {
-            menu_index = 0;
-        }
-        alarm[0] = room_speed/6;
-    }
-    
-    if (Input.up_key) {
-        if (menu_index &gt; 0) {
-            menu_index--;
-        } else {
-            menu_index = array_length_1d(option)-1;
-        }
-        alarm[0] = room_speed/6;
-    }
-    
-    if (Input.select_key) {
-        switch (menu_index) {
-            case 0:
-                room_goto_next();
-                break;
-                
-            case 1:
-                room_goto(rm_fa_menu);
-                break;
-                
-            case 2:
-                break;
-                
-            case 3:
-                room_goto(rm_credits);
-                break;
-                
-            case 4:
-                game_end();
-                break;  
-                
-            default:
-                break;
-        }
-        Input.select_key = false;
-    }
-}
+credits = "Ant Simulator#Optical Raze Studios###Developped By##Markus Gudelis (ModernFuzzBall2)## "; 
+credits += "Special Thanks#";
+credits += "#HeartBeast#";
+credits += "SlasherXGAMES#";
+credits += "##Assets#";
+credits += "#HeartBeast#";
+credits += "##Sound Effects#";
+credits += "#SoundJay.com#";
+credits += "##Music#";
+credits += "#Adventure Meme Kevin MacLeod (incompetech.com)#";
+credits += "Licensed under Creative Commons: By Attribution 3.0 License#";
+credits += "http://creativecommons.org/licenses/by/3.0/#";
+credits += "#Professor Umlaut Kevin MacLeod (incompetech.com)#";
+credits += "Licensed under Creative Commons: By Attribution 3.0 License#";
+credits += "http://creativecommons.org/licenses/by/3.0/#";
+credits += "##Push any key to go to the main menu";
+y = room_height;
+vspeed = -1;
 </string>
           </argument>
         </arguments>
@@ -150,26 +70,37 @@ if (alarm[0] &lt;= 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw the menu
-var xx = display_get_gui_width()/2;
-var yy = display_get_gui_height()/2;
-draw_set_halign(fa_center);
-draw_set_alpha(0);
-draw_text(xx, yy-64, title);
-draw_set_alpha(1);
-
-for (var i=0; i&lt;=array_length_1d(option)-1; i++) {
-    draw_set_colour(c_gray);
-    if (i == menu_index) {
-        draw_set_colour(c_white);
-    }
-    draw_text(xx, yy+(i*32), option[i]);
-}
+            <string>/// Draw the credits
 draw_set_color(c_white);
-draw_set_halign(fa_left);
-
-// Draw the alpha build text
-draw_text(x, y, "alpha build 0.3");
+draw_set_halign(fa_center);
+//draw_set_font(fnt_endcredits);
+draw_text(320,y,credits);
+if ( y &lt; -string_height(credits) ) y = room_height;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Restart the game
+audio_stop_all();
+game_restart();
 </string>
           </argument>
         </arguments>

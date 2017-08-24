@@ -11,6 +11,7 @@
       <sound>sound\snd_fa_background</sound>
       <sound>sound\snd_fa_collect</sound>
     </sounds>
+    <sound>sound\snd_credits</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
@@ -51,6 +52,7 @@
     <object>objects\Player</object>
     <object>objects\Enemy</object>
     <object>objects\player_stats</object>
+    <object>objects\end_credits</object>
     <objects name="Menu">
       <object>objects\menu_pause</object>
       <object>objects\menu_fa_pause</object>
@@ -75,6 +77,7 @@
     <room>rooms\rm_test</room>
     <room>rooms\rm_pause</room>
     <room>rooms\rm_options</room>
+    <room>rooms\rm_credits</room>
     <rooms name="Mini Games">
       <room>rooms\rm_fa_menu</room>
       <room>rooms\rm_fa</room>
