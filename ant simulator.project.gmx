@@ -9,11 +9,13 @@
       <sound>sound\snd_fa_die</sound>
       <sound>sound\snd_fa_up</sound>
       <sound>sound\snd_fa_background</sound>
+      <sound>sound\snd_fa_collect</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_enemy</sprite>
+    <sprite>sprites\spr_title</sprite>
     <sprites name="Flappy Ant">
       <sprite>sprites\spr_fa_pillar_bottom</sprite>
       <sprite>sprites\spr_fa_pillar_top</sprite>
@@ -53,6 +55,7 @@
       <object>objects\menu_pause</object>
       <object>objects\menu_fa_pause</object>
       <object>objects\menu_main</object>
+      <object>objects\menu_title</object>
     </objects>
     <objects name="Flappy Ant">
       <object>objects\fa_cat</object>

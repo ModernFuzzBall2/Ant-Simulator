@@ -97,6 +97,8 @@ if(y&gt;= 132) {
           <argument>
             <kind>1</kind>
             <string>/// Increase the score
+audio_stop_sound(snd_fa_collect);
+audio_play_sound(snd_fa_collect, 11, false);
 fa_score.current_score += 1;
 with (other) instance_destroy();
 </string>

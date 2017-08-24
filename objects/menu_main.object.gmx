@@ -153,7 +153,9 @@ if (alarm[0] &lt;= 0) {
 var xx = display_get_gui_width()/2;
 var yy = display_get_gui_height()/2;
 draw_set_halign(fa_center);
+draw_set_alpha(0);
 draw_text(xx, yy-64, title);
+draw_set_alpha(1);
 
 for (var i=0; i&lt;=array_length_1d(option)-1; i++) {
     draw_set_colour(c_gray);

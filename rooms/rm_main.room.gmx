@@ -53,6 +53,7 @@
   <instances>
     <instance objName="menu_main" x="128" y="64" name="inst_37EA9668" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Input" x="160" y="64" name="inst_76A4667D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="menu_title" x="480" y="160" name="inst_945C2BE1" locked="0" code="" scaleX="1.875" scaleY="2" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
